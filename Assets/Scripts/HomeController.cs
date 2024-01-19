@@ -13,12 +13,32 @@ public class HomeController : MonoBehaviour
 
     public MenuButton[] listMenuButtons;
 
+    public SettingButton ButtonSettings;
+    public SettingButton ButtonAchivement;
+    public SettingButton ButtonDailyGift;
+    public SettingButton ButtonInbox;
+
+
+
+    public SettingButton[] listSettingsButtons;
+
     public GameObject LevelPanel;
+    
     // Start is called before the first frame update
     void Start()
     {
         btnMenuCLick(2);
+        
     }
+
+
+
+    public void PanelInfoSetting()
+    {
+        
+        InfoCharactor.SetActive(!InfoCharactor.activeSelf);
+    }
+
 
     public void btnMenuCLick(int index)
     {
@@ -28,6 +48,17 @@ public class HomeController : MonoBehaviour
         }
         listMenuButtons[index].SetFocus(true);
     }
+
+    public void btnSettingCLick(int index)
+    {
+        for(int i= 0; i < listSettingsButtons.Length; i++)
+        {
+            listSettingsButtons[i].SetFocus(false);
+        }
+        listSettingsButtons[index].SetFocus(true);
+    }
+
+    
 
 
 
