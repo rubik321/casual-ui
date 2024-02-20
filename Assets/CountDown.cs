@@ -10,13 +10,13 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textBox.text = timeStart.ToString();
+        // textBox.text = timeStart.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeStart -= Time.deltaTime;
-        textBox.text = Mathf.Round(timeStart).ToString();
+        // timeStart -= Time.deltaTime;
+        // textBox.text = Mathf.Round(timeStart).ToString();
     }
 }

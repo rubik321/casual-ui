@@ -38,11 +38,12 @@ public class GearData
     public string Descreption;
     public WeaponType WeaponType;
 }
-public class DataController : MonoBehaviour
+public class DataGearController : MonoBehaviour
 {
     public GearData[] gearData;
+    
     public GearData[] EquipmentData;
-    public static DataController Instance;
+    public static DataGearController Instance;
 
     void Awake()
     {
