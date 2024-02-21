@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            userGold = userGold + 10;
+            userGold = userGold + 100;
             txtGold.text = userGold.ToString();
 
             userWaveFinish = userWaveFinish + 1;
@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
 
     public void ResetBoss()
     {
-        
+
         DataPlayerController.instance.boss.HPBoss += 10;
         // bossItem.HPboss.value = DataPlayerController.instance.boss.HPBoss/DataPlayerController.instance.boss.HPBoss ;
         // bossItem.HPboss.value = cusHPBoss/DataPlayerController.instance.boss.HPBoss;
