@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class DataPlayerController : MonoBehaviour
 {
+    public double userEnerge;
+    public double userGold;
+    public double userGem;
     public Hero hero;
     public Boss boss;
+    public List<Sprite> lsSpriteIconBoss;
     public static DataPlayerController instance;
-    void Awake() 
+    void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         LoadInfoHero();
     }
-    void LoadInfoHero ()
+    void LoadInfoHero()
     {
         hero.Atk = 10;
         hero.Def = 10;
@@ -24,10 +28,10 @@ public class DataPlayerController : MonoBehaviour
         hero.Decisive = 10;
         boss.HPBoss = 50;
     }
-    
+
 }
 [Serializable]
-public class Boss 
+public class Boss
 {
     public int HPBoss;
     public int GoldBoss;
@@ -49,9 +53,9 @@ public class Hero
 {
     public int ID;
     public int Atk;
-    public int Def ;
-    public int HP ;
-    public int Crit ;
-    public int Critatk ;
-    public int Decisive ;
+    public int Def;
+    public int HP;
+    public int Crit;
+    public int Critatk;
+    public int Decisive;
 }
