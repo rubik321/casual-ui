@@ -26,6 +26,7 @@ public class DataPlayerController : MonoBehaviour
         hero.Crit = 10;
         hero.Critatk = 10;
         hero.Decisive = 10;
+        hero.Level = 1;
         boss.HPBoss = 50;
     }
 
@@ -58,4 +59,5 @@ public class Hero
     public int Crit;
     public int Critatk;
     public int Decisive;
+    public int Level;
 }

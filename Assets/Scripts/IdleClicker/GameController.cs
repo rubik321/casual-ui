@@ -20,6 +20,12 @@ public class GameController : MonoBehaviour
     public BossItem bossItem;
 
     public DataPlayerController dataPlayerController;
+
+    public int Level; // biến đếm độ khó của game
+
+    public float dokho = 1;
+
+
     public static GameController instance;
     // public TextMeshProUGUI txtHero;
     void Awake()
@@ -45,13 +51,5 @@ public class GameController : MonoBehaviour
         userWaveFinish = 0;
         txtWaveFinish.text = userWaveFinish.ToString();
     }
-
-
-
-
-
-
-
-
 
 }
