@@ -16,11 +16,34 @@ public class BossItem : MonoBehaviour
     float maxHpBoss;
     GameController gameController;
     DataPlayerController dataPlayerController;
+
+    int TimeAtk = 0;
+
+    float tmpTime;
+
+
     void Start()
     {
 
         LoadData();
     }
+
+    private void Update()
+    {
+        {
+            tmpTime += Time.deltaTime;
+            //Debug.Log(Time.deltaTime);
+            if (Mathf.FloorToInt(tmpTime) > TimeAtk) // Hàm đổi làm tròn time
+            {
+                Attack();
+                TimeAtk += 1;
+            }
+
+
+        }
+
+    }
+
     void LoadData()
     {
 
@@ -51,25 +74,29 @@ public class BossItem : MonoBehaviour
 
         if (cusHPBoss <= 0)
         {
-            dataPlayerController.userGold = dataPlayerController.userGold + 100;
-            gameController.txtGold.text = dataPlayerController.userGold.ToString();
-
-            gameController.userWaveFinish = gameController.userWaveFinish + 1;
-            gameController.txtWaveFinish.text = gameController.userWaveFinish.ToString();
-
-            // ham doi image nhan vat roondom
-            Sprite spriteTarget = dataPlayerController.lsSpriteIconBoss[Random.Range(0, dataPlayerController.lsSpriteIconBoss.Count - 1)];
-            SwapImageBoss(spriteTarget);
-            GameController.instance.Level = GameController.instance.Level + 1;
-
-            if (GameController.instance.Level % 10 == 0)
-            {
-                GameController.instance.dokho = GameController.instance.dokho + 0.5f;
-
-            }
-
-            ResetBoss();
+            BossDie();
         }
+    }
+
+    void BossDie()
+    {
+        dataPlayerController.userGold = dataPlayerController.userGold + 100;
+        gameController.txtGold.text = dataPlayerController.userGold.ToString();
+
+        gameController.userWaveFinish = gameController.userWaveFinish + 1;
+        gameController.txtWaveFinish.text = gameController.userWaveFinish.ToString();
+
+        // ham doi image nhan vat roondom
+
+        GameController.instance.Level = GameController.instance.Level + 1;
+
+        if (GameController.instance.Level % 10 == 0)
+        {
+            GameController.instance.dokho = GameController.instance.dokho + 0.5f;
+
+        }
+
+        ResetBoss();
     }
     public void ResetBoss()
     {
@@ -79,7 +106,22 @@ public class BossItem : MonoBehaviour
         // cusHPBoss = dataPlayerController.boss.HPBoss;
         // HPboss.value = cusHPBoss;
         // textHpBoss.text = cusHPBoss.ToString() + "/" + dataPlayerController.boss.HPBoss.ToString();
+        Sprite spriteTarget = dataPlayerController.lsSpriteIconBoss[Random.Range(0, dataPlayerController.lsSpriteIconBoss.Count - 1)];
+        SwapImageBoss(spriteTarget);
         LoadData();
 
+        //textHpBoss.text = calP().ToString();
+
+    }
+
+
+    int calP()
+    {
+        int att = 10;
+        int HP = 30;
+
+        int cHP = HP - att;
+
+        return cHP;
     }
 }
